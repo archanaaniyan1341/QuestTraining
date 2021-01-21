@@ -1,0 +1,17 @@
+For when to use a RDBMS, here are some points to consider:
+You have relational data, i.e. you have a customer who purchases your products and those products have a supplier and manufacturer
+You have large amounts of data and you need to be able to locate relevant information quickly
+You need to start worrying about the previous issues identified: scalability, reliability, ACID compliance
+You need to use reporting or intelligence tools to work out business problems
+
+As for when to use a NoSQL
+You have lots of data that needs to be stored which is unstructured
+Scalability and speed needs
+You generally don't need to define your schema up front, so if you have changing requirements this might be a good point
+
+Finally, when to use files
+You have unstructured data in reasonable amounts that the file system can handle
+You don't care about structure, relationships
+You don't care about scalability or reliability (although these can be done, depending on the file system)
+You don't want or can't deal with the overhead a database will add
+You are dealing with structured binary data that belongs in the file system, for example: images, PDFs, documents, etc.
