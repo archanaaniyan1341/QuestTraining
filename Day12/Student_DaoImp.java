@@ -49,26 +49,19 @@ ConnectionEx conex=new ConnectionEx();
 
 	@Override
 	public void getBatches() {
-		String query="Select batchID FROM student where paymentStatus='NotPaid'";
+		String query="select student.name,batch.batchName from student,batch"
+				+ " where student.batchID=batch.batchID and "
+				+ "student.paymentStatus='NotPaid';" ;
 		try {
 			Connection conn= conex.getConnection();
 			Statement st=conn.createStatement();
 			ResultSet res=st.executeQuery(query);
 		while( res.next()) {
-			int BatchId=res.getInt("batchID");
-			if(BatchId==1001) {
-				System.out.println("Science");
-			}else if(BatchId==1002) {
-				System.out.println("Commerce");
-			}else if(BatchId==1003) {
-				System.out.println("Arts");
-		}
+			System.out.println(res.getString("name")+" from "+res.getString("batchName"));
 		}	
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-
-		
+		}	
 	}
 
 	@Override
